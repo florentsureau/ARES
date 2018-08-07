@@ -314,8 +314,8 @@ def getFace2DPatches(Imag,PatchWidth,face,nested=False,BorderCap=False,
     nside=hp.npix2nside(npix)
     if(nside<PatchWidth):
         raise ValueError('Incorrect PatchWidth {0} vs nside {1}'.format(
-                                                            PatchWidth,nside))
-    Patches2D=np.zeros((npix/12,PatchWidth,PatchWidth))
+                                                       PatchWidth,nside))
+    Patches2D=np.zeros((npix//12,PatchWidth,PatchWidth))
     NPatchPerSide=nside
     #Process all patches without -1
     if(Verbose):
