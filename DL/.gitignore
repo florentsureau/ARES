@@ -4,4 +4,4 @@ build/*
 bin/*
 lib/*
 *.pyc
-notebook/.ipython*
+notebook/.ipynb*
