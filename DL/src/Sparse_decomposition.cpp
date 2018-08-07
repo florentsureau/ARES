@@ -78,7 +78,7 @@ size_t bufferSize=0;
 double ErrorTarget = -1.;
 size_t NAtoms=0;
 bool UseSparsity=true;
-int SparsityTarget;
+int SparsityTarget=-1;
 bool SaveApprox=false;
 
 bool CenterPatches=false;
@@ -93,7 +93,7 @@ static void usage(char *argv[])
     fprintf(OUTMAN, "Usage: %s options nameDicoIn.fits", argv[0]);
     fprintf(OUTMAN, " nameVectIn.fits nameCodeOut.fits \n\n");
     fprintf(OUTMAN, "   where options =  \n");
-    fprintf(OUTMAN, "      [-e ErrorTarget]\n");
+    fprintf(OUTMAN, "      [-e ErrorTarget, TargetSparsity ignored]\n");
     fprintf(OUTMAN, "      [-s TargetSparsity]\n");
     fprintf(OUTMAN, "      [-m name of fits file containing input metric for selection of atoms]\n");
     fprintf(OUTMAN, "      [-w name of fits file containing input metric for selection and approximation]\n");
@@ -133,7 +133,6 @@ static void transinit(int argc, char *argv[])
                 fprintf(OUTMAN, "bad -e value: %s\n", OptArg);
                 MyExit::exit(EXIT_FAILURE);
             }
-            if (ErrorTarget > 0) UseSparsity = false;
             break;
             case 'm':
             if (sscanf(OptArg,"%s", nameInputMetric) != 1){
@@ -267,8 +266,7 @@ int main(int argc, char *argv[])
     //Initialize Sparse Coder
         //Initialize Sparse Coder
     SparseCoding *SparseCoder = new OMP();
-    if (!UseSparsity) SparsityTarget = Dico.nx();
-    else ErrorTarget = -1;
+    if (SparsityTarget<0) SparsityTarget = NAtoms;
     SparseCoder->setDictionary(Dico);
     SparseCoder->setErrorTarget(ErrorTarget);
     SparseCoder->setSparsityTarget(SparsityTarget);

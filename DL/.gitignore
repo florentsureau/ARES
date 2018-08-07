@@ -1,0 +1,6 @@
+# Compiled source #
+###################
+build/*
+bin/*
+lib/*
+*.pyc
