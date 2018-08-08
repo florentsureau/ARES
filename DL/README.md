@@ -15,10 +15,11 @@ performed by OMP. The dictionary update can be obtained via MOD, K-SVD, approxim
 The package should be compiled with cmake. The package is self-contained but it is strongly recommended to install atlas (<http://math-atlas.sourceforge.net>)
 and/or armadillo libraries (<http://arma.sourceforge.net/docs.html>).
 
-0) Quick use 
+0) Quick use
 If you already know or do not care about the details, here is a list of commands
 to use to run the functions of this package. The image in these examples
-are in the same directory as the executables.
+are in the same directory as the executables. Help for the binary can be obtained
+in the command line by calling the executable without options.
 
 + bin/dl_learning -g 512 -R -n 128 -i100 -s 5. -V -K -k 1 -a approx_approxkSVD1_8x8_5000_it100.fits
 patches8x8_5000.fits dicolearn_approxkSVD1_8x8_5000_it100.fits : use approximate KSVD (-K -k 1) with one iteration to
@@ -44,7 +45,7 @@ This binary learns a sparsifying dictionary from patch data using alternated min
 number of iterations). OMP is used as sparse coder by either specifying the target sparsity (-s), and/or the expected RMS level (-e), and either MOD (default), KSVD (-K) or
 approximate KSVD (-k x, wiht x the number of sub-iterations) for dictionary update. A initial dictionary can also be specified (-d NameofInitDico.fits) or it can either be a sparse dictionary with targeted density (-r) or taken from random samples in the training set (-R) with a given number of atoms (-n). Input metric in sparse coding (-m) can be provided as full 2D array or only its diagonal.
 
-Usage: bin/DL_learning options nameVectIn.fits nameDicoOut.fits 
+Usage: bin/DL_learning options nameVectIn.fits nameDicoOut.fits
 
    where options =  
       [-e ErrorTarget]  
@@ -72,7 +73,7 @@ Usage: bin/DL_learning options nameVectIn.fits nameDicoOut.fits
 
 This binary performs sparse decomposition (only OMP implemented yet).The target sparsity (-s) and/or the expected RMS level (-e) can be specified. Input metric, used in the dot product, can be specified using -m (either a diagonal, or full 2D metric). If a mean patch is assumed, it can be provided with option (-p), and for centered (mean of the patch=0) patch, one can use -C. Approximation can be saved using -a, with either the mean of the patch added back if -C, or the mean patch added if -p. If the codes are of no interest, the option -N can be used.
 
-Usage: bin/sparse_decomp options nameDicoIn.fits nameVectIn.fits nameCodeOut.fits 
+Usage: bin/sparse_decomp options nameDicoIn.fits nameVectIn.fits nameCodeOut.fits
 
    where options =  
       [-e ErrorTarget, TargetSparsity ignored]  
