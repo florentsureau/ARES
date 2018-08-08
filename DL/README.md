@@ -47,26 +47,26 @@ approximate KSVD (-k x, wiht x the number of sub-iterations) for dictionary upda
 Usage: bin/DL_learning options nameVectIn.fits nameDicoOut.fits 
 
    where options =  
-      [-e ErrorTarget]
-      [-s TargetSparsity]
-      [-i Iteration number, default 10]
-      [-d InitialDictionary]
-      [-m name of fits file containing input metric]
-      [-n Natoms if no input dictionary]
-      [-p Name of mean patch to save and to subtract
-          from training set]
-      [-r Init Sparse Density if no input dictionary]
-      [-R Random training examples for initialization]
-      [-g generator seed - default 0]
-      [-c Name for training set code to save]
-      [-a Name for training set approx to save]
-      [-C center training patches (mean of each patch=0)]
-      [-K use KSVD]
-      [-k Iterations for approx KSVD (used), default 1]
-      [-M Minimal Correlation]
-      [-N Minimal Sparsity]
-      [-T Timing on]
-      [-V verbose]
+      [-e ErrorTarget]  
+      [-s TargetSparsity]  
+      [-i Iteration number, default 10]  
+      [-d InitialDictionary]  
+      [-m name of fits file containing input metric]  
+      [-n Natoms if no input dictionary]  
+      [-p Name of mean patch to save and to subtract  
+          from training set]  
+      [-r Init Sparse Density if no input dictionary]  
+      [-R Random training examples for initialization]  
+      [-g generator seed - default 0]  
+      [-c Name for training set code to save]  
+      [-a Name for training set approx to save]  
+      [-C center training patches (mean of each patch=0)]  
+      [-K use KSVD]  
+      [-k Iterations for approx KSVD (used), default 1]  
+      [-M Minimal Correlation]  
+      [-N Minimal Sparsity]  
+      [-T Timing on]  
+      [-V verbose]  
 
 2) sparse_decomp
 
@@ -75,17 +75,17 @@ This binary performs sparse decomposition (only OMP implemented yet).The target 
 Usage: bin/sparse_decomp options nameDicoIn.fits nameVectIn.fits nameCodeOut.fits 
 
    where options =  
-      [-e ErrorTarget, TargetSparsity ignored]
-      [-s TargetSparsity]
-      [-m name of fits file containing input metric for selection of atoms]
-      [-w name of fits file containing input metric for selection and approximation]
-      [-p Name of optional mean input to subtract
-          from each input]
-      [-a Name for training set approx to save]
-      [-C center training patches (mean of each patch=0)]
-      [-N do not save the final code]
-      [-T Timing on]
-      [-V verbose]
+      [-e ErrorTarget, TargetSparsity ignored]  
+      [-s TargetSparsity]  
+      [-m name of fits file containing input metric for selection of atoms]  
+      [-w name of fits file containing input metric for selection and approximation]  
+      [-p Name of optional mean input to subtract  
+          from each input]  
+      [-a Name for training set approx to save]  
+      [-C center training patches (mean of each patch=0)]  
+      [-N do not save the final code]  
+      [-T Timing on]  
+      [-V verbose]  
 
 
 
