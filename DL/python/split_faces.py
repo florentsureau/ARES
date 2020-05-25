@@ -141,7 +141,7 @@ def constructExtendedFaceIndices(nside,face,PatchWidth,nested=False,Verbose=Fals
     #BOTTOM BORDER EXTENSION
     for ky in range(PatchWidth-2,-1,-1):
         lstPix=FaceExtension[ky+1,0:nside].astype('int64').flatten()
-        PixBorder=np.array(hp.get_all_neighbours(nside,lstPix,nest=False))
+        PixBorder=np.array(hp.get_all_neighbours(nside,lstPix,nest=nested))
         for kx in range(1,nside):
             LeftPix=FaceExtension[ky+1,kx-1]
             if(-1 in PixBorder[0:8,kx]):
